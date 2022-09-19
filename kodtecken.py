@@ -59,7 +59,8 @@ def programming_signs():
     {"svenska" : ["stjärna"], 
     "english" : ["star"],
     "sv_arithmetic" : ["multiplikation", "gånger"],
-    "en_arithmetic" : ["multiplication", "times"]
+    "en_arithmetic" : ["multiplication", "times"],
+    "modkey" : ["shift"]
     }
     ),
 
@@ -67,7 +68,8 @@ def programming_signs():
     {"svenska" : ["snedstreck"], 
     "english" : ["slash"],
     "sv_arithmetic" : ["division", "delat", "delat med"],
-    "en_arithmetic" : ["division", "divided", "divided by"]
+    "en_arithmetic" : ["division", "divided", "divided by"],
+    "modkey" : ["shift"]
     }
     ),
     
@@ -76,6 +78,7 @@ def programming_signs():
     Sign("\\", 
     {"svenska" : ["bakstreck", "omvänt snedstreck"], 
     "english" : ["backslash"],
+    "modkey" : ["alt gr"]
     # "sv_arithmetic" : ["division, delat", "delat med"],
     # "en_arithmetic" : ["division, divided", "divided by"]
     }
@@ -85,6 +88,7 @@ def programming_signs():
     Sign("(", 
     {"svenska" : ["startparantes"], 
     "english" : ["open paranthesis"],
+    "modkey" : ["shift"],
     "pair-matched" : ")",
     "start" : True
     }
@@ -94,6 +98,7 @@ def programming_signs():
     Sign(")", 
     {"svenska" : ["slutparantes"], 
     "english" : ["close paranthesis"],
+    "modkey" : ["shift"],
     "pair-matched" : "(",
     "end" : True
     }
@@ -102,6 +107,7 @@ def programming_signs():
     Sign("{", 
     {"svenska" : ["startmåsvinge", "startklammerparantes"], 
     "english" : ["open curly bracket"],
+    "modkey" : ["alt gr"],
     "pair-matched" : "}",
     "start" : True
     }
@@ -110,6 +116,7 @@ def programming_signs():
     Sign("}", 
     {"svenska" : ["slutmåsvinge", "slutklammerparantes"], 
     "english" : ["close curly bracket"],
+    "modkey" : ["alt gr"],
     "pair-matched" : "{",
     "end" : True
     }
@@ -118,6 +125,7 @@ def programming_signs():
     Sign("[", 
     {"svenska" : ["starthakparentes"], 
     "english" : ["open bracket"],
+    "modkey" : ["alt gr"],
     "pair-matched" : "]",
     "start" : True
     }
@@ -126,6 +134,7 @@ def programming_signs():
     Sign("]", 
     {"svenska" : ["sluthakparentes"], 
     "english" : ["close bracket"],
+    "modkey" : ["alt gr"],
     "pair-matched" : "[",
     "end" : True
     }
@@ -134,12 +143,14 @@ def programming_signs():
     Sign(":", 
     {"svenska" : ["kolon"], 
     "english" : ["colon"],
+    "modkey" : ["shift"]
     }
     ),
     
     Sign(";", 
     {"svenska" : ["semikolon"], 
     "english" : ["semi-colon"],
+    "modkey" : ["shift"]
     }
     ),
     
@@ -153,6 +164,7 @@ def programming_signs():
     Sign('"', 
     {"svenska" : ["citattecken"], 
     "english" : ["quotation marks"],
+    "modkey" : ["shift"],
     "pair-matched" : '"',
     }
     ),
@@ -174,7 +186,7 @@ def programming_signs():
     Sign('=', 
     {"svenska" : ["likamed", "likamedtecken", "tilldelning"], 
     "english" : ["equals", "assignment"],
-    
+    "modkey" : ["shift"],
     }
     ),
     
@@ -188,7 +200,7 @@ def programming_signs():
     Sign('>', 
     {"svenska" : ["större än"], 
     "english" : ["greater than", "larger than"],
-    
+    "modkey" : ["shift"],
     }
     ),
     

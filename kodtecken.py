@@ -34,6 +34,9 @@ class Sign(object):
         else:
             return self.names_dict["english"][0]
         # return "foo"
+    
+    def full_info(self):
+        return ""
 
 def programming_signs():
     
@@ -79,8 +82,6 @@ def programming_signs():
     {"svenska" : ["bakstreck", "omvänt snedstreck"], 
     "english" : ["backslash"],
     "modkey" : ["alt gr"]
-    # "sv_arithmetic" : ["division, delat", "delat med"],
-    # "en_arithmetic" : ["division, divided", "divided by"]
     }
     ),
     

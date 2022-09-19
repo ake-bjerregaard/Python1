@@ -111,7 +111,7 @@ def programming_signs():
     {"svenska" : ["slutmåsvinge", "slutklammerparantes"], 
     "english" : ["close curly bracket"],
     "pair-matched" : "{",
-    "end" : False
+    "end" : True
     }
     ),
     
@@ -179,8 +179,8 @@ def programming_signs():
     ),
     
     Sign('==', 
-    {"svenska" : ["likamed", "likamedtecken", "tilldelning"], 
-    "english" : ["equals", "assignment"],
+    {"svenska" : ["jämförelse"], 
+    "english" : ["equivalence"],
     
     }
     ),

@@ -89,6 +89,16 @@ def simple_write_with_sign(sign):
         correct = userInput == rightAnswer
     print("Bra jobbat!\n")
     time.sleep(0.7)
+    
+def simple_write_with_sign_and_text(sign, text):
+    correct = False
+    rightAnswer = sign.sign
+    while(not correct):
+        print(text + str(sign) + ": " + sign.sign)
+        userInput = input()
+        correct = userInput == rightAnswer
+    print("Bra jobbat!\n")
+    time.sleep(0.7)
         
     
 # simple_write("(", "Skriv startparantes: ");

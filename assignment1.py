@@ -20,6 +20,26 @@ for k, v in signs.items():
     
 #print("Hello world!")
 
+#print(variabler)
+
+#matematematiska formler + - * / #med och utan variabler.
+
+#exempel for loopar som ska skriva #med range
+
+#if satser
+
+printExempel = '''Givet variablerna nedan. Sätt ihop det till denna sträng:
+Hejdå!
+sträng1 = "Hej "
+sträng2 = "då!"
+
+'''
+# sträng1 + sträng2
+
+
+
+
+
 
 
 username = ""    

@@ -1,9 +1,9 @@
-sant = True
-falskt = False
+sant = True #boolean
+falskt = False #boolean
 
 x = 3 #tilldelningsoperator
 print(x)
-print(x == 3) # jämförelse
+print(x == 3) # jämförelseoperator ==
 
 print("Är 4 större än 3?")
 print(4 > 3) # är 4 större än 3?

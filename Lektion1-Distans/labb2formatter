@@ -1,0 +1,12 @@
+formatering = "{} lite text {} och lite mer text {}"
+
+
+print(formatering.format(1, 5, 4))
+
+sträng = "Hej"
+heltal = 7
+flyttal = 1.52
+
+formatering = "Först en sträng: {} Sen ett heltal: {} Och sen ett flyttal: {}"
+
+print(formatering.format(sträng, heltal, flyttal))

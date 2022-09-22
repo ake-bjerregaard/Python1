@@ -17,8 +17,14 @@
 
 import io
 import sys
+import readline
 
+class WholeHistory:
+    wholehistory = []
 
+def save_print(string):
+    WholeHistory.wholehistory.append(string)
+    print(string)
 
 def print_correct(answer, instructionText):
     correct = False
@@ -94,11 +100,18 @@ def simple_write_with_sign_and_text(sign, text):
     correct = False
     rightAnswer = sign.sign
     while(not correct):
-        print(text + str(sign) + ": " + sign.sign)
+        save_print(text + str(sign) + ": " + sign.sign)
         userInput = input()
         correct = userInput == rightAnswer
-    print("Bra jobbat!\n")
+    save_print("Bra jobbat!\n")
     time.sleep(0.7)
+
+someFunctionString = '''for x in range(10):
+    print(x)'''
+print(someFunctionString)
+exec(someFunctionString)
+
+
         
     
 # simple_write("(", "Skriv startparantes: ");

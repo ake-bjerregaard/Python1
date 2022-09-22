@@ -1,7 +1,10 @@
-from kodtecken import programming_signs
-from kodtecken import Sign
-from test_methods import print_correct
-from test_methods import simple_write_with_sign_and_text
+import sys
+# sys.path.insert(0,'..') #kinda ugly way to move back and import
+from assignmentpackage import programming_signs
+from assignmentpackage import Sign
+from assignmentpackage import print_correct
+from assignmentpackage import simple_write_with_sign_and_text
+from assignmentpackage import WholeHistory
 
 signs = programming_signs()
 
@@ -15,14 +18,25 @@ Sign.swedish = False
 for k, v in signs.items():
     simple_write_with_sign_and_text(v, "Write ")
     
-    
-    
+#print("Hello world!")
+
+
+
+username = ""    
 while(username == ""):
     print("Skriv ditt förnamn. Avsluta med enterslag:")
     username = input()
     
-while(usersurname == ""):
+userlastname = ""
+while(userlastname == ""):
     print("Skriv ditt efternamn. Avsluta med enterslag:")
-    usersurname = input()
+    userlastname = input()
     
-    
+assignment1string = username + " " + userlastname
+
+ 
+log_file = open("assignment1.testoop","w")
+log_file.write(assignment1string) 
+for x in WholeHistory.wholeHistory:
+    log_file.write(x)
+log_file.close()

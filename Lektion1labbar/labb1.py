@@ -1,5 +1,5 @@
 förnamn = "Åke"
-print(förnamn
+print(förnamn)
 
 efternamn = "Bjerregaard"
 

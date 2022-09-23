@@ -1,0 +1,10 @@
+from sys import argv
+
+script, useranme = argv
+print(argv)
+
+förstaArgumentet = argv[1] 
+print(förstaArgumentet)
+
+if(förstaArgumentet == "status"):
+    print("Jag mår bra och är lite trött")

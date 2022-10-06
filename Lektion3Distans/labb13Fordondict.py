@@ -43,6 +43,3 @@ print(enMotorCykel)
 print(enBil)
 print(enVolvoV60)
 
-print(enMotorCykel.__dict__)
-enMotorCykel.__dict__["enNyNyckel"] = 2500
-print(enMotorCykel.__dict__)

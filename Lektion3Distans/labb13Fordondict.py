@@ -35,6 +35,7 @@ class VolvoV60(Bil):
 
 enMotorCykel = Motorcykel("Honda", 300, "Blå", "Shadow")
 enBil = Bil("Volvo", 250, "Svart", "2010", 5, 300)
+enMotorCykel.antal_hjul = 3
 enVolvoV60 = VolvoV60("gul")
 
 

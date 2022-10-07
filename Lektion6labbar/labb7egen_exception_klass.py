@@ -7,7 +7,7 @@ class Student:
 
     def __init__(self, namn):
         # if not namn.isinstance(str):
-        if namn is str:
+        if type(namn) is not str:
             raise IngenSträngException
         self.namn = namn
         

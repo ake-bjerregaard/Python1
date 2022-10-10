@@ -185,7 +185,6 @@ class BackgroundKlass(pg.sprite.Sprite):
     images = []
 
     def __init__(self):
-        pg.sprite
         pg.sprite.Sprite.__init__(self, self.containers)
         self.image = self.images[0]
         self.image = pg.transform.scale(self.image, (SCREENRECT.width, SCREENRECT.height*2))
@@ -196,3 +195,19 @@ class BackgroundKlass(pg.sprite.Sprite):
         if(self.rect.y > 0):
             self.rect.y = -self.rect.height//2
         
+class Boll(pg.sprite.Sprite):
+
+    images = []
+    velocity = [4, 4]
+    
+    def __init__(self):
+        pg.sprite.Sprite.__init__(self, self.containers)
+        self.image = self.images[0]
+        self.rect = self.image.get_rect()
+        self.velocity = Boll.velocity
+
+    def update(self):
+        self.rect.move_ip(self.velocity[0], self.velocity[1])
+
+    def bounce(self):
+        self.velocity[1] = -self.velocity[1]

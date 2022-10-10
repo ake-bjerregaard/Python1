@@ -102,6 +102,8 @@ def main(winstyle=0):
     Shot.images = [load_image("nedladdning.jfif")]
     img = load_image("TileVertical.png")
     BackgroundKlass.images = [load_image("TileVertical.png")]
+    Boll.images = [load_image("asprite.bmp")]
+
 
     # decorate the game window
     icon = pg.transform.scale(Alien.images[0], (32, 32))
@@ -129,6 +131,7 @@ def main(winstyle=0):
     aliens = pg.sprite.Group()
     shots = pg.sprite.Group()
     bombs = pg.sprite.Group()
+    bollar = pg.sprite.Group()
     all = pg.sprite.RenderUpdates()
     lastalien = pg.sprite.GroupSingle()
 
@@ -141,6 +144,7 @@ def main(winstyle=0):
     Explosion.containers = all
     BackgroundKlass.containers = all
     Score.containers = all
+    Boll.containers = all, bollar
 
     # Create Some Starting Values
     global score
@@ -153,6 +157,7 @@ def main(winstyle=0):
     player = Player()
     Alien()  # note, this 'lives' because it goes into a sprite group
     AlienOtherDirection()
+    Boll()
     
     OtherEnemies()
     if pg.font:
@@ -226,6 +231,9 @@ def main(winstyle=0):
             Explosion(player)
             SCORE = SCORE + 1
             player.kill()
+
+        for boll in pg.sprite.spritecollide(player, bollar, False):
+            boll.bounce()
 
         # See if shots hit the aliens.
         for alien in pg.sprite.groupcollide(aliens, shots, 1, 1).keys():

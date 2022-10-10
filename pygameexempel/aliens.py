@@ -104,12 +104,14 @@ def main(winstyle=0):
     BackgroundKlass.images = [load_image("TileVertical.png")]
     Boll.images = [load_image("asprite.bmp")]
 
+    StartKnapp.images = [load_image("menu/Menu_Green_01.png"), load_image("menu/Menu_Red_03.png")]
+
 
     # decorate the game window
     icon = pg.transform.scale(Alien.images[0], (32, 32))
     pg.display.set_icon(icon)
     pg.display.set_caption("Pygame Tysenator")
-    pg.mouse.set_visible(0)
+    pg.mouse.set_visible(True)
 
     # create the background, tile the bgd image
     bgdtile = load_image("background.gif")
@@ -146,6 +148,9 @@ def main(winstyle=0):
     Score.containers = all
     Boll.containers = all, bollar
 
+    menu = pg.sprite.Group()
+    StartKnapp.containers = menu
+
     # Create Some Starting Values
     global score
     alienreload = ALIEN_RELOAD
@@ -162,6 +167,27 @@ def main(winstyle=0):
     OtherEnemies()
     if pg.font:
         all.add(Score())
+
+    start_knapp = StartKnapp()
+    start_game = False
+    while not start_game:
+        for event in pg.event.get():
+            if event.type == pg.KEYDOWN:
+                start_game = True
+            elif event.type == pg.MOUSEBUTTONDOWN:
+                if(start_knapp.rect.collidepoint(pg.mouse.get_pos())):
+                    start_knapp.nedtryckt()
+                    # start_game = True
+            elif event.type == pg.MOUSEBUTTONUP:
+                start_knapp.upptryckt()
+                if(start_knapp.rect.collidepoint(pg.mouse.get_pos())):
+                    start_game = True
+                
+
+        pg.display.flip()
+        dirty = menu.draw(screen)
+        pg.display.update(dirty)
+    pg.mouse.set_visible(False)    
 
     # Run our main loop whilst the player is alive.
     while player.alive():

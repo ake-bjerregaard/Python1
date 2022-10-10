@@ -211,3 +211,17 @@ class Boll(pg.sprite.Sprite):
 
     def bounce(self):
         self.velocity[1] = -self.velocity[1]
+
+class StartKnapp(pg.sprite.Sprite):
+    images = []
+
+    def __init__(self):
+        pg.sprite.Sprite.__init__(self, self.containers)
+        self.image = self.images[0]
+        self.rect = self.image.get_rect()
+
+    def nedtryckt(self):
+        self.image = self.images[1]
+
+    def upptryckt(self):
+        self.image = self.images[0]   

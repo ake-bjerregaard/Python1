@@ -224,4 +224,100 @@ class StartKnapp(pg.sprite.Sprite):
         self.image = self.images[1]
 
     def upptryckt(self):
-        self.image = self.images[0]   
+        self.image = self.images[0]  
+
+class TextField(pg.sprite.Sprite):
+    """to keep track of the score."""
+
+    updatera = False
+
+    def __init__(self):
+        pg.sprite.Sprite.__init__(self)
+        self.font = pg.font.Font(None, 20)
+        self.font.set_italic(0)
+        self.color = "white"
+        self.updatera = True
+        self.text = "Här ska vi skriva"
+        self.update()
+        self.rect = self.image.get_rect().move(10, 450)
+
+
+    def update(self):
+        """We only update the score in update() when it has changed."""
+        # if self.updatera:
+        self.image = self.font.render(self.text, 0, self.color)
+        self.updatera = False
+
+    def läggtilltext(self, extra_text):
+        self.text += extra_text
+        self.updatera = True
+        
+
+# class ExplosionSpritesheet(pg.sprite.Sprite):
+    
+#     images = []
+#     image = None
+
+#     def __init__(self, image):
+#         pg.sprite.Sprite.__init__(self, self.containers)
+#         self.image = image
+#         self.images = [self.image_at(self, pg.Rect(0,0,222,222))]
+        
+
+    
+#     def imageToSpriteImages(image):
+#         local_images = [] 
+
+#         return local_images
+
+#     def images_at(self, rects, colorkey = None):
+#         "Loads multiple images, supply a list of coordinates" 
+#         return [self.image_at(rect, colorkey) for rect in rects]
+
+#     def image_at(self, rectangle, colorkey = None):
+#         "Loads image from x,y,x+offset,y+offset"
+#         rect = pg.Rect(rectangle)
+#         image = pg.Surface(rect.size).convert()
+#         image.blit(self.sheet, (0, 0), rect)
+#         if colorkey is not None:
+#             if colorkey is -1:
+#                 colorkey = image.get_at((0,0))
+#             image.set_colorkey(colorkey, pg.RLEACCEL)
+#         return image
+
+#     def load_strip(self, rect, image_count):
+#         for x in range(image_count):
+#             tups = [(rect[0]+rect[2]*x, rect[1], rect[2], rect[3])
+#             for x in range(image_count)]
+#         return self.images_at(tups)
+
+#############
+
+# class spritesheet(object):
+#     def __init__(self, filename):
+#         try:
+#             self.sheet = pygame.image.load(filename).convert()
+#         except pygame.error, message:
+#             print 'Unable to load spritesheet image:', filename
+#             raise SystemExit, message
+#     # Load a specific image from a specific rectangle
+#     def image_at(self, rectangle, colorkey = None):
+#         "Loads image from x,y,x+offset,y+offset"
+#         rect = pygame.Rect(rectangle)
+#         image = pygame.Surface(rect.size).convert()
+#         image.blit(self.sheet, (0, 0), rect)
+#         if colorkey is not None:
+#             if colorkey is -1:
+#                 colorkey = image.get_at((0,0))
+#             image.set_colorkey(colorkey, pygame.RLEACCEL)
+#         return image
+#     # Load a whole bunch of images and return them as a list
+#     def images_at(self, rects, colorkey = None):
+#         "Loads multiple images, supply a list of coordinates" 
+#         return [self.image_at(rect, colorkey) for rect in rects]
+#     # Load a whole strip of images
+#     def load_strip(self, rect, image_count, colorkey = None):
+#         "Loads a strip of images and returns them as a list"
+#         tups = [(rect[0]+rect[2]*x, rect[1], rect[2], rect[3])
+#                 for x in range(image_count)]
+#         return self.images_at(tups, colorkey)

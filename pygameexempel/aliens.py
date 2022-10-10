@@ -150,6 +150,8 @@ def main(winstyle=0):
 
     menu = pg.sprite.Group()
     StartKnapp.containers = menu
+    TextField.containers = menu
+    # ExplosionSpritesheet = menu
 
     # Create Some Starting Values
     global score
@@ -168,13 +170,19 @@ def main(winstyle=0):
     if pg.font:
         all.add(Score())
 
+    # ExplosionSpritesheet(load_image("explosion.png"))
+
     start_knapp = StartKnapp()
+    textFält = TextField()
     start_game = False
+    menu.add(textFält)
     while not start_game:
         for event in pg.event.get():
             if event.type == pg.KEYDOWN:
-                start_game = True
-            elif event.type == pg.MOUSEBUTTONDOWN:
+                if event.unicode:
+                    textFält.läggtilltext(event.unicode)
+                    menu.update()
+            if event.type == pg.MOUSEBUTTONDOWN:
                 if(start_knapp.rect.collidepoint(pg.mouse.get_pos())):
                     start_knapp.nedtryckt()
                     # start_game = True
@@ -182,7 +190,7 @@ def main(winstyle=0):
                 start_knapp.upptryckt()
                 if(start_knapp.rect.collidepoint(pg.mouse.get_pos())):
                     start_game = True
-                
+            
 
         pg.display.flip()
         dirty = menu.draw(screen)

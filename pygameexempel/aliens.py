@@ -105,6 +105,7 @@ def main(winstyle=0):
     Boll.images = [load_image("asprite.bmp")]
 
     StartKnapp.images = [load_image("menu/Menu_Green_01.png"), load_image("menu/Menu_Red_03.png")]
+    AvslutaKnapp.images = [load_image("menu/Menu_Green_04.png"), load_image("menu/Menu_Red_02.png")]
 
 
     # decorate the game window
@@ -151,6 +152,7 @@ def main(winstyle=0):
     menu = pg.sprite.Group()
     StartKnapp.containers = menu
     TextField.containers = menu
+    AvslutaKnapp.containers = menu
     # ExplosionSpritesheet = menu
 
     # Create Some Starting Values
@@ -172,7 +174,13 @@ def main(winstyle=0):
 
     # ExplosionSpritesheet(load_image("explosion.png"))
 
+    def AvslutaFunktion():
+        pg.quit()
+
+
     start_knapp = StartKnapp()
+    avsluta_knapp = AvslutaKnapp(AvslutaFunktion)
+    avsluta_knapp.rect.move_ip(0, 100)
     textFält = TextField()
     start_game = False
     menu.add(textFält)
@@ -185,6 +193,8 @@ def main(winstyle=0):
             if event.type == pg.MOUSEBUTTONDOWN:
                 if(start_knapp.rect.collidepoint(pg.mouse.get_pos())):
                     start_knapp.nedtryckt()
+                if(avsluta_knapp.rect.collidepoint(pg.mouse.get_pos())):
+                    avsluta_knapp.knapptryck()
                     # start_game = True
             elif event.type == pg.MOUSEBUTTONUP:
                 start_knapp.upptryckt()
@@ -195,6 +205,8 @@ def main(winstyle=0):
         pg.display.flip()
         dirty = menu.draw(screen)
         pg.display.update(dirty)
+    #menu while-loop tar slut här
+
     pg.mouse.set_visible(False)    
 
     # Run our main loop whilst the player is alive.

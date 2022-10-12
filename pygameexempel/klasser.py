@@ -224,7 +224,17 @@ class StartKnapp(pg.sprite.Sprite):
         self.image = self.images[1]
 
     def upptryckt(self):
-        self.image = self.images[0]  
+        self.image = self.images[0]
+
+class AvslutaKnapp(StartKnapp):
+    
+    def __init__(self, funktion_vid_tryck):
+        super().__init__()
+        self.funktion_vid_knapptryck = funktion_vid_tryck
+
+    def knapptryck(self):
+        self.funktion_vid_knapptryck()
+
 
 class TextField(pg.sprite.Sprite):
     """to keep track of the score."""

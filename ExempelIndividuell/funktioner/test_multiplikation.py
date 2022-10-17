@@ -1,5 +1,5 @@
 import unittest
-
+from multiplication_func import multiplikation
 
 
 assert(callable(multiplikation))
